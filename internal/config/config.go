@@ -8,6 +8,7 @@ import (
 
 type Config struct {
 	Port        string
+	DatabaseURL string
 	DBHost      string
 	DBPort      string
 	DBUser      string
@@ -23,6 +24,7 @@ func Load() (*Config, error) {
 
 	return &Config{
 		Port:        getEnv("PORT", "8080"),
+		DatabaseURL: os.Getenv("DATABASE_URL"),
 		DBHost:      getEnv("DB_HOST", "localhost"),
 		DBPort:      getEnv("DB_PORT", "5432"),
 		DBUser:      getEnv("DB_USER", "postgres"),
